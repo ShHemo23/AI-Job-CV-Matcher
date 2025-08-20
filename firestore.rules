@@ -1,0 +1,25 @@
+
+rules_version = '2';
+
+service cloud.firestore {
+  match /databases/{database}/documents {
+    
+    // Profiles Collection:
+    // Users can read and write to their own profile document.
+    // The document ID must be the same as the authenticated user's ID.
+    match /profiles/{userId} {
+      allow read, write: if request.auth != null && request.auth.uid == userId;
+    }
+
+    // Applications Collection:
+    // Users can create and read their own applications.
+    match /applications/{applicationId} {
+      // Allow read if the user ID on the document matches the authenticated user's ID.
+      allow read: if request.auth != null && resource.data.userId == request.auth.uid;
+      // Allow create if the incoming document's user ID is the same as the authenticated user's ID.
+      allow create: if request.auth != null && request.resource.data.userId == request.auth.uid;
+      // Do not allow updates or deletes for this simple case.
+      allow update, delete: if false;
+    }
+  }
+}

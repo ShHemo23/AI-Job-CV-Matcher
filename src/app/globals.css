@@ -1,0 +1,301 @@
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 0 0% 100%;
+    --foreground: 222.2 84% 4.9%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 222.2 84% 4.9%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 222.2 84% 4.9%;
+
+    --primary: 340 90% 50%;
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 210 40% 96.1%;
+    --secondary-foreground: 210 40% 20%;
+
+    --muted: 210 40% 96.1%;
+    --muted-foreground: 210 40% 45%;
+
+    --accent: 24 95% 53%;
+    --accent-foreground: 0 0% 100%;
+
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 98%;
+
+    --border: 214.3 31.8% 85.4%;
+    --input: 214.3 31.8% 85.4%;
+    --ring: 340 90% 50%;
+
+    --chart-1: 340 90% 50%;
+    --chart-2: 24 95% 53%;
+    --chart-3: 190 70% 50%;
+    --chart-4: 280 65% 60%;
+    --chart-5: 50 90% 55%;
+
+    --radius: 0.5rem;
+
+    --sidebar-background: 210 40% 98%;
+    --sidebar-foreground: 210 40% 10%;
+    --sidebar-primary: 340 90% 50%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 210 40% 90%;
+    --sidebar-accent-foreground: 340 90% 50%;
+    --sidebar-border: 210 40% 85%;
+    --sidebar-ring: 340 90% 50%;
+  }
+
+  .dark {
+    --background: 222.2 84% 4.9%;
+    --foreground: 210 40% 98%;
+    
+    --card: 222.2 84% 4.9%;
+    --card-foreground: 210 40% 98%;
+    
+    --popover: 222.2 84% 4.9%;
+    --popover-foreground: 210 40% 98%;
+    
+    --primary: 340 85% 60%;
+    --primary-foreground: 210 40% 9.8%;
+    
+    --secondary: 217.2 32.6% 17.5%;
+    --secondary-foreground: 210 40% 98%;
+    
+    --muted: 217.2 32.6% 17.5%;
+    --muted-foreground: 215 20.2% 65.1%;
+    
+    --accent: 24 90% 60%;
+    --accent-foreground: 210 40% 9.8%;
+    
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 210 40% 98%;
+    
+    --border: 217.2 32.6% 22.5%;
+    --input: 217.2 32.6% 22.5%;
+    --ring: 340 85% 60%;
+
+    --chart-1: 340 85% 60%; 
+    --chart-2: 24 90% 60%;  
+    --chart-3: 190 65% 55%; 
+    --chart-4: 280 60% 65%; 
+    --chart-5: 50 85% 60%; 
+
+    --sidebar-background: 222.2 84% 4.9%;
+    --sidebar-foreground: 210 40% 98%;
+    --sidebar-primary: 340 85% 60%;
+    --sidebar-primary-foreground: 210 40% 9.8%;
+    --sidebar-accent: 217.2 32.6% 17.5%;
+    --sidebar-accent-foreground: 210 40% 98%;
+    --sidebar-border: 217.2 32.6% 17.5%;
+    --sidebar-ring: 340 85% 60%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+    scroll-behavior: smooth;
+  }
+  
+  .animated-background {
+    @apply bg-gradient-to-br from-background via-orange-300/50 to-background;
+    background-size: 400% 400%;
+    animation: gradient-animation 15s ease infinite;
+  }
+
+  .dark .animated-background {
+    @apply bg-gradient-to-br from-background via-orange-900/30 to-background;
+    background-size: 400% 400%;
+    animation: gradient-animation 15s ease infinite;
+  }
+}
+
+@layer components {
+  .gradient-text {
+    @apply bg-gradient-to-r from-primary via-pink-400 to-orange-400 bg-clip-text text-transparent;
+    background-size: 200% auto;
+    animation: logo-shine 6s linear infinite;
+  }
+
+  @keyframes logo-shine {
+    0% { background-position: 200% center; }
+    100% { background-position: -200% center; }
+  }
+  
+  .nav-link-hover::after {
+    content: '';
+    @apply absolute bottom-0 left-0 w-0 h-0.5 bg-primary transition-all duration-300 ease-out;
+  }
+  .nav-link-hover:hover::after,
+  .nav-link-hover[data-active="true"]::after {
+    @apply w-full;
+  }
+
+}
+
+@layer utilities {
+
+   @keyframes gradient-animation {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+  }
+
+  @keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+  }
+  .animate-fadeIn {
+    animation: fadeIn 0.6s ease-out forwards;
+  }
+
+   @keyframes fadeOut {
+    from { opacity: 1; }
+    to { opacity: 0; }
+  }
+  .animate-fadeOut {
+    animation: fadeOut 0.5s ease-out forwards;
+  }
+
+  @keyframes slideUpFadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  .animate-slideUpFadeIn {
+    animation: slideUpFadeIn 0.7s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
+  }
+
+  @keyframes slideInLeft {
+    from { opacity: 0; transform: translateX(-30px); }
+    to { opacity: 1; transform: translateX(0); }
+  }
+  .animate-slideInLeft {
+    animation: slideInLeft 0.7s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
+  }
+
+   @keyframes bounceIn {
+    0% {
+      opacity: 0;
+      transform: scale(0.5);
+    }
+    50% {
+      opacity: 1;
+      transform: scale(1.05);
+    }
+    70% {
+      transform: scale(0.95);
+    }
+    100% {
+      opacity: 1;
+      transform: scale(1);
+    }
+  }
+  .animate-bounceIn {
+    animation: bounceIn 0.6s ease-out forwards;
+  }
+
+  @keyframes pulse {
+    0%, 100% { opacity: 1; }
+    50% { opacity: .7; }
+  }
+  .animate-pulse-subtle {
+      animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+  }
+
+
+  @keyframes orangeGlow {
+    0%, 100% { box-shadow: 0 0 5px hsl(var(--accent)/0.7), 0 0 10px hsl(var(--accent)/0.5), 0 0 15px hsl(var(--accent)/0.3); opacity: 0.7; }
+    50% { box-shadow: 0 0 10px hsl(var(--accent)/0.8), 0 0 20px hsl(var(--accent)/0.6), 0 0 30px hsl(var(--accent)/0.4); opacity: 1; }
+  }
+
+  .hover-glow-orange {
+    @apply relative transition-all duration-300 ease-out overflow-hidden;
+  }
+
+  .hover-glow-orange::before {
+    content: '';
+    @apply absolute inset-0 border-2 border-transparent rounded-[inherit] transition-all duration-300 ease-out;
+    pointer-events: none;
+  }
+
+  .hover-glow-orange:hover::before {
+    @apply border-accent;
+    animation: orangeGlow 1.5s ease-in-out infinite;
+  }
+
+  .button-hover-effect {
+      @apply transition-all duration-300 ease-out;
+  }
+  .button-hover-effect:hover {
+      @apply transform scale-105 shadow-lg brightness-110;
+  }
+  .button-hover-effect:active {
+      @apply transform scale-95 brightness-90;
+  }
+
+  @keyframes textFocusIn {
+    0% {
+      filter: blur(12px);
+      opacity: 0;
+    }
+    100% {
+      filter: blur(0);
+      opacity: 1;
+    }
+  }
+  .animate-textFocusIn {
+      animation: textFocusIn 1s cubic-bezier(0.550, 0.085, 0.680, 0.530) both;
+  }
+
+   @keyframes textTrackingInExpand {
+    0% {
+      letter-spacing: -0.5em;
+      opacity: 0;
+    }
+    40% {
+      opacity: 0.6;
+    }
+    100% {
+      opacity: 1;
+    }
+  }
+   .animate-textTrackingInExpand {
+	    animation: textTrackingInExpand 0.7s cubic-bezier(0.215, 0.610, 0.355, 1.000) both;
+    }
+    
+  @keyframes wiggle {
+    0%, 100% {
+      transform: rotate(-5deg);
+    }
+    50% {
+      transform: rotate(5deg);
+    }
+  }
+
+  .animate-wiggle {
+    animation: wiggle 0.4s ease-in-out infinite;
+  }
+  
+  .group:hover .animate-wiggle-on-hover {
+    animation: wiggle 0.4s ease-in-out infinite;
+  }
+  
+  @keyframes shake {
+    10%, 90% { transform: translate3d(-1px, 0, 0); }
+    20%, 80% { transform: translate3d(2px, 0, 0); }
+    30%, 50%, 70% { transform: translate3d(-4px, 0, 0); }
+    40%, 60% { transform: translate3d(4px, 0, 0); }
+  }
+  .animate-shake {
+      animation: shake 0.82s cubic-bezier(.36,.07,.19,.97) both;
+  }
+}

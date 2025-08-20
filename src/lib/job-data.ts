@@ -1,0 +1,14 @@
+
+import { subDays } from 'date-fns';
+
+export const allJobs = [
+  { id: 'j1', title: 'Build a Responsive Landing Page', company: 'Startup Inc.', budget: '$500 - $1000', duration: '1 week', skills: ['HTML', 'CSS', 'JavaScript', 'React'], description: 'Need a modern and fast landing page for our new product. Design provided.', datePosted: subDays(new Date(), 10) },
+  { id: 'j2', title: 'Develop a REST API with Node.js', company: 'Tech Corp', budget: '$1500 - $3000', duration: '2-3 weeks', skills: ['Node.js', 'Express', 'MongoDB', 'API Design'], description: 'Looking for an experienced backend developer to build a robust REST API for our mobile app.', datePosted: subDays(new Date(), 8) },
+  { id: 'j3', title: 'Create Marketing Content', company: 'Marketing Agency', budget: '$800', duration: 'Ongoing', skills: ['Content Writing', 'SEO', 'Marketing'], description: 'Seeking a skilled writer to create blog posts and social media content.', datePosted: subDays(new Date(), 20) },
+  { id: 'j4', title: 'UI/UX Design for Mobile App', company: 'Innovate Solutions', budget: '$2000 - $4000', duration: '1 month', skills: ['UI Design', 'UX Design', 'Figma', 'Mobile App Design'], description: 'Redesigning our existing mobile application. Need a creative UI/UX designer.', datePosted: subDays(new Date(), 5) },
+  { id: 'j5', title: 'Frontend Development with Next.js', company: 'E-commerce Giant', budget: '$3000 - $5000', duration: '1-2 months', skills: ['Next.js', 'React', 'TypeScript', 'Tailwind CSS'], description: 'Join our team to build new features for our large-scale e-commerce platform using Next.js.', datePosted: subDays(new Date(), 2) },
+  { id: 'j6', title: 'Database Optimization (PostgreSQL)', company: 'Data Analytics Firm', budget: '$1000 - $2500', duration: 'Flexible', skills: ['PostgreSQL', 'SQL', 'Database Performance', 'Indexing'], description: 'Optimize our existing PostgreSQL database queries and structure for better performance.', datePosted: subDays(new Date(), 15) },
+  { id: 'j7', title: 'Mobile App Development (Flutter)', company: 'App Startup', budget: '$2500 - $4500', duration: '6 weeks', skills: ['Flutter', 'Dart', 'Mobile App Development', 'Firebase'], description: 'Develop a cross-platform mobile app from scratch using Flutter.', datePosted: subDays(new Date(), 1) },
+  { id: 'j8', title: 'Technical Writer for API Documentation', company: 'SaaS Provider', budget: '$1200 - $1800', duration: '3 weeks', skills: ['Technical Writing', 'API Documentation', 'Markdown'], description: 'Create clear and concise API documentation for our new product.', datePosted: subDays(new Date(), 30) },
+  { id: 'j9', title: 'Cloud Infrastructure Setup (AWS)', company: 'Growth Stage Co.', budget: '$2000 - $3500', duration: '1-2 weeks', skills: ['AWS', 'DevOps', 'Terraform', 'CI/CD'], description: 'Set up and configure a scalable cloud infrastructure on AWS for our web application.', datePosted: subDays(new Date(), 7) },
+];

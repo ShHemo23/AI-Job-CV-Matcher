@@ -2,7 +2,7 @@
 
 FreelanceZen is a modern web application that leverages AI to intelligently match freelance professionals with relevant job opportunities. Users can upload their CV, have it automatically parsed into a professional profile, and instantly receive a curated list of job postings scored for relevance.
 
-![FreelanceZen Screenshot](https://placehold.co/800x400.png)
+![FreelanceZen Screenshot](https://i.postimg.cc/nz1PqcST/Freelance-AIApp-1.png)
 
 ## Features
 
